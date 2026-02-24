@@ -27,31 +27,20 @@ int main() {
 }
 
 // Define printV() here
+
 void printV(long int number)
 {
-    //pre-conditions: takes in a positive long integer number
-    //post-conditions: prints out the entire number from the most significant to least significant digits each separated by a newline
-    if(number < 10) //base case if number is 1 digit
+    if(number < 10) //base case is 1 digit
     {
-        cout << number;
+        cout << number << endl;
         return;
     }
-    else
-    {
-        //recursive case if number has more than 1 digit
-        int temp(number), count(0);
+    //recursive case
+    int temp;
 
-        while(temp > 9) //loops until there is only 1 digit left
-        {
-            temp /= 10; //integer division effectively gets rid of least significant digit
-            count++;
-        }
-        cout << temp << endl;
-        for(int i = 0; i < count; i++) //loop brings temp which is the same digit as the most significant digit of number to be the same magnitude as the most significant digit of number
-        {
-            temp *= 10;
-        }
-        printV(number - temp);
-    }
+    temp = number % 10; //assigns temp to least significant digit
+    number /= 10; //integer division effectively removes least significant digit
+    
+    printV(number);
+    cout << temp << endl;
 }
-
