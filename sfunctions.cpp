@@ -17,7 +17,7 @@ void swap_values(int& v1, int& v2)
     int temp;
     temp = v1;
     v1 = v2;
-    v2 = v1;
+    v2 = temp;
     return;
 }
 
@@ -64,10 +64,12 @@ void sort(bool desc, int a[], int number_used, int index)
     swap_values(a[index + 1], a[swappy]);
 
     //only recursive case
-    if(number_used != 1);
+    if(number_used != 1)
+    {
         number_used--;
         index++;
         sort(desc, a, number_used, index);
+    }
 }
 
 int getFileSize(ifstream& inf, string fname)
@@ -75,7 +77,7 @@ int getFileSize(ifstream& inf, string fname)
     //pre-conditions: gets an ifstream object passed by reference and a string filename
     //post-conditions: returns the number of (integer) elements in the file
     inf.open(fname);
-    int count(0);
+    int count(0), next;
     while(inf >> next)
         count++;
     inf.close();
@@ -87,7 +89,7 @@ void getArray(ifstream& in, string fname, int arr[], int size)
     //pre-conditons: recieves an ifstream object passed by refrence, a string filename, a dynamic integer array and an integer of its size
     //post-conditions: transfers integer values read from the external file to inside the dynamic integer array
     in.open(fname);
-    int index(0);
+    int index(0), next;
 
     while(in >> next)
     {
