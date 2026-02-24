@@ -15,7 +15,7 @@ int main() {
     // 4. Print out message accordingly (see examples given)
     string user_input;
     cout << "Enter sentence:" << endl;
-    geline(cin, user_input);
+    getline(cin, user_input);
 
     cleanUp(user_input);
     if(isPalindrome(user_input))
