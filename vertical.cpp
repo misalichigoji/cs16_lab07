@@ -18,8 +18,8 @@ int main() {
     
     if(user_num < 0) //if negative number entered
     {
-        cerr << "Input must be a positive integer.";
-        exit(1);
+        cout << "Input must be a positive integer.";
+        return 0;
     }
 
     printV(user_num);
