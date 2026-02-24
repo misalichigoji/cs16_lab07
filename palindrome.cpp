@@ -6,6 +6,7 @@
 #include <string>   // for string
 using namespace std;
 #include "pheaders.h"
+#include "pfunctions.cpp"
 
 int main() {
     // 1. Get a string from the user (see examples given)
@@ -16,7 +17,7 @@ int main() {
     cout << "Enter sentence:" << endl;
     cin >> user_input;
 
-    cleanUp(user_input)
+    cleanUp(user_input);
     if(isPalindrome(user_input))
         cout << "It is a palindrome.";
     else

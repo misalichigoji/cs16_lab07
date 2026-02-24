@@ -15,7 +15,7 @@ bool isPalindrome(string s) {
     int size = s.size();
     if(size <=2) //base case if string has only one or two characters left
     {
-        if(size = 2)
+        if(size == 2)
         {
             if(s[1] != s[0])
                 return false;
@@ -25,10 +25,10 @@ bool isPalindrome(string s) {
     //recursive case (string s is a palindrome if first and last characters of s are the same and the rest of string is a palindrome)
     if(s[0] != s[size - 1])
         return false;
-    s.substr(1, size - 2); //removes two outer chars
+    s = s.substr(1, size - 2); //removes two outer chars
     if(isPalindrome(s))
-        reutrn true;
-    reutrn false; //if recursive check fails (not palindrome)
+        return true;
+    return false; //if recursive check fails (not palindrome)
 }
 
 void cleanUp(string &s) { 
