@@ -59,17 +59,16 @@ void sort(bool desc, int a[], int number_used, int index)
     //post_conditions: sorts a dynamic array in ascending or descending order
     int swappy;
 
-    //base and recursive case (because they share the same first chunk of code, recursive splits off laterr)
-    swappy = find_index_of_swap(desc, a, index + 1, number_used - 1);
-    swap_values(a[index + 1], a[swappy]);
+    //base case
+    if(index >= number_used - 1)
+        return;
 
-    //only recursive case
+    //recursive case
+    swappy = find_index_of_swap(desc, a, index, number_used);
+    swap_values(a[index], a[swappy]);
+
     if(number_used != 1)
-    {
-        number_used--;
-        index++;
-        sort(desc, a, number_used, index);
-    }
+        sort(desc, a, number_used, index + 1);
 }
 
 int getFileSize(ifstream& inf, string fname)
