@@ -32,11 +32,9 @@ int main() {
     getArray(filed, user_filename, darr, size);
 
     cout << "Original array:" << endl;
-    for(int i = 0; i > size - 1; i++)
-    {
+    for(int i = 0; i < size; i++)
         cout << darr[i] << " ";
-    }
-    cout << darr[size - 1] << endl; //assures no extra space after last element in array
+    cout << endl;
     
     cout << "Ascending (0) or Descending (1): ";
     cin >> choice;
@@ -47,5 +45,11 @@ int main() {
 
     cout << "Sorted array:" << endl;
     sort(desc, darr, size, 0);
+    for(int j = 0; j < size; j++)
+        cout << darr[j] << " ";
+    cout << endl;
+
+    delete []darr;
+    darr = nullptr;
     return 0;
 }
